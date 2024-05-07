@@ -1,0 +1,33 @@
+/* styles.css */
+
+.assignments-container {
+  margin: 20px;
+}
+
+.assignment {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.assignment h3 {
+  color: #333;
+}
+
+.assignment p {
+  color: #666;
+}
+
+.assignment input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.assignment input[type="submit"] {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Add more styles as needed */
