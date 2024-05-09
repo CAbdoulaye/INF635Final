@@ -4,7 +4,7 @@ const productsData = [
     name: 'Apple Vision Pro',
     description: "",
     category: "TV",
-    imageURL: "",
+    imageURL: "AppleVisionPro.jpeg",
     price: 3499.99, 
     quantity: 5
   },
@@ -13,7 +13,7 @@ const productsData = [
     name: 'PS5',
     description: "",
     category: "Gaming Console",
-    imageURL: "",
+    imageURL: "PS5.jpeg",
     price: 499.99, 
     quantity: 10
   },
@@ -22,7 +22,7 @@ const productsData = [
     name: "Iphone 15",
     description: "",
     category: "Phone",
-    imageURL: "",
+    imageURL: "Iphone15.jpeg",
     price: 1299.99, 
     quantity: 25
   },
@@ -31,7 +31,7 @@ const productsData = [
     name: "MacBook Pro",
     description: "",
     category: "Computer",
-    imageURL: "",
+    imageURL: "MacBookPro.jpeg",
     price: 2499.99, 
     quantity: 10
   },
