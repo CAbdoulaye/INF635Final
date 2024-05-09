@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import HomePage from './pages/HomePage';
-import AboutUs from './pages/AboutUs';
+import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
+import Home from './pages/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import NotFound from './pages/NotFound';
+import ThankYouPage from './pages/ThankYouPage';
 import { ProductsProvider } from './components/context/ProductsContext';
 
 export default function App() {
@@ -14,8 +16,10 @@ export default function App() {
       <BrowserRouter>
         <Header/>
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          <Route path="/about" element={<AboutUs/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/products" element={<ProductsPage/>}/>
+          <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/thankYou" element={<ThankYouPage/>}/>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Footer/>

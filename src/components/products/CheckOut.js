@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AboutUs() {
+export default function CheckOut() {
   return (
     <div>
-      <h1>About Page</h1>
+      <Cart/>
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import Products from '../components/products/Products';
 
-export default function HomePage() {
+export default function ProductsPage() {
   return (
     <div className="App">
-      <h1>Welcome To My Assignment Manager</h1>
+      <h1>View Our Products</h1>
       <Products/>
     </div>
   );

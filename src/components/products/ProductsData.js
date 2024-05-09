@@ -40,7 +40,7 @@ const productsData = [
     name: "Google Pixel 6",
     description: "",
     category: "Phone",
-    imageURL: "",
+    imageURL: "GooglePixel6.jpeg",
     price: 899.99, 
     quantity: 15
   },
@@ -49,7 +49,7 @@ const productsData = [
     name: "Dell XPS 15",
     description: "",
     category: "Computer",
-    imageURL: "",
+    imageURL: "DellXPS15.jpeg",
     price: 1899.99, 
     quantity: 8
   },
@@ -58,7 +58,7 @@ const productsData = [
     name: 'LG 34" Ultrawide Monitor',
     description: "",
     category: "Monitor",
-    imageURL: "",
+    imageURL: "LG34UltrawideMonitor.jpeg",
     price: 999.99, 
     quantity: 20
   },
@@ -67,7 +67,7 @@ const productsData = [
     name: 'Razer BlackWidow Keyboard',
     description: "",
     category: "Keyboard",
-    imageURL: "",
+    imageURL: "RazerBlackWidowKeyboard.jpeg",
     price: 149.99, 
     quantity: 30
   },
@@ -76,7 +76,7 @@ const productsData = [
     name: "Samsung Galaxy Tab S7+",
     description: "",
     category: "Tablet",
-    imageURL: "",
+    imageURL: "SamsungGalaxyTabS7+.jpeg",
     price: 799.99, 
     quantity: 12
   },
@@ -85,7 +85,7 @@ const productsData = [
     name: "HP Envy x360",
     description: "",
     category: "Laptop",
-    imageURL: "",
+    imageURL: "HPEnvyx360.jpeg",
     price: 1199.99, 
     quantity: 18
   },
@@ -94,7 +94,7 @@ const productsData = [
     name: 'Acer 24" Gaming Monitor',
     description: "",
     category: "Monitor",
-    imageURL: "",
+    imageURL: "Acer24GamingMonitor.jpeg",
     price: 399.99, 
     quantity: 35
   },
@@ -103,7 +103,7 @@ const productsData = [
     name: 'Corsair K70 RGB Keyboard',
     description: "",
     category: "Keyboard",
-    imageURL: "",
+    imageURL: "CorsairK70RGBKeyboard.jpeg",
     price: 129.99, 
     quantity: 40
   },
@@ -112,7 +112,7 @@ const productsData = [
     name: "OnePlus 9 Pro",
     description: "",
     category: "Phone",
-    imageURL: "",
+    imageURL: "OnePlus9Pro.jpeg",
     price: 1099.99, 
     quantity: 20
   },
@@ -121,7 +121,7 @@ const productsData = [
     name: "Microsoft Surface Laptop 4",
     description: "",
     category: "Laptop",
-    imageURL: "",
+    imageURL: "MicrosoftSurfaceLaptop4.jpeg",
     price: 1599.99, 
     quantity: 15
   },
@@ -130,7 +130,7 @@ const productsData = [
     name: 'ASUS 27" Curved Gaming Monitor',
     description: "",
     category: "Monitor",
-    imageURL: "",
+    imageURL: "ASUS27CurvedGamingMonitor.jpeg",
     price: 599.99, 
     quantity: 25
   },
@@ -139,7 +139,7 @@ const productsData = [
     name: 'SteelSeries Apex Pro Keyboard',
     description: "",
     category: "Keyboard",
-    imageURL: "",
+    imageURL: "SteelSeriesApexProKeyboard.jpeg",
     price: 199.99, 
     quantity: 20
   },
@@ -148,7 +148,7 @@ const productsData = [
     name: "Apple iPad Air (2022)",
     description: "",
     category: "Tablet",
-    imageURL: "",
+    imageURL: "AppleiPadAir(2022).jpeg",
     price: 649.99, 
     quantity: 10
   },
@@ -157,7 +157,7 @@ const productsData = [
     name: "Sony Xperia 1 III",
     description: "",
     category: "Phone",
-    imageURL: "",
+    imageURL: "SonyXperia1III.jpeg",
     price: 1199.99, 
     quantity: 18
   },
@@ -166,7 +166,7 @@ const productsData = [
     name: "Lenovo ThinkPad X1 Carbon",
     description: "",
     category: "Laptop",
-    imageURL: "",
+    imageURL: "LenovoThinkPadX1Carbon.jpeg",
     price: 1799.99, 
     quantity: 12
   },
@@ -175,7 +175,7 @@ const productsData = [
     name: 'ViewSonic 32" 4K Monitor',
     description: "",
     category: "Monitor",
-    imageURL: "",
+    imageURL: "ViewSonic324KMonitor.jpeg",
     price: 899.99, 
     quantity: 22
   },
@@ -184,7 +184,7 @@ const productsData = [
     name: 'Logitech G Pro X Keyboard',
     description: "",
     category: "Keyboard",
-    imageURL: "",
+    imageURL: "LogitechGProXKeyboard.jpeg",
     price: 99.99, 
     quantity: 30
   },
@@ -193,7 +193,7 @@ const productsData = [
     name: "Samsung Galaxy Watch 4",
     description: "",
     category: "Wearable",
-    imageURL: "",
+    imageURL: "SamsungGalaxyWatch4.jpeg",
     price: 349.99, 
     quantity: 15
   },
@@ -202,7 +202,7 @@ const productsData = [
     name: "Google Nest Hub Max",
     description: "",
     category: "Smart Home",
-    imageURL: "",
+    imageURL: "GoogleNestHubMax.jpeg",
     price: 229.99, 
     quantity: 25
   },
@@ -211,7 +211,7 @@ const productsData = [
     name: 'ASUS ROG Phone 5',
     description: "",
     category: "Phone",
-    imageURL: "",
+    imageURL: "ASUSROGPhone5.jpeg",
     price: 999.99, 
     quantity: 20
   },
@@ -220,7 +220,7 @@ const productsData = [
     name: 'Microsoft Surface Pro 8',
     description: "",
     category: "Tablet",
-    imageURL: "",
+    imageURL: "MicrosoftSurfacePro8.jpeg",
     price: 899.99, 
     quantity: 15
   },
@@ -229,7 +229,7 @@ const productsData = [
     name: 'Alienware 34" Ultrawide Gaming Monitor',
     description: "",
     category: "Monitor",
-    imageURL: "",
+    imageURL: "Alienware34UltrawideGamingMonitor.jpeg",
     price: 1499.99, 
     quantity: 10
   },
@@ -238,7 +238,7 @@ const productsData = [
     name: 'Razer Huntsman Elite Keyboard',
     description: "",
     category: "Keyboard",
-    imageURL: "",
+    imageURL: "RazerHuntsmanEliteKeyboard.jpeg",
     price: 179.99, 
     quantity: 25
   },
@@ -247,7 +247,7 @@ const productsData = [
     name: "Fitbit Charge 5",
     description: "",
     category: "Wearable",
-    imageURL: "",
+    imageURL: "FitbitCharge5.jpeg",
     price: 149.99, 
     quantity: 30
   },
@@ -256,7 +256,7 @@ const productsData = [
     name: "Amazon Echo Show 15",
     description: "",
     category: "Smart Home",
-    imageURL: "",
+    imageURL: "AmazonEchoShow15.jpeg",
     price: 299.99, 
     quantity: 20
   },
@@ -265,7 +265,7 @@ const productsData = [
     name: 'OnePlus Buds Pro',
     description: "",
     category: "Headphones",
-    imageURL: "",
+    imageURL: "OnePlusBudsPro.jpeg",
     price: 129.99, 
     quantity: 5
   }
