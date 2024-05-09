@@ -1,0 +1,21 @@
+.header {
+  font-size: larger; font-weight: bold;
+  text-transform: uppercase;
+  padding: 20px;
+  background-color: #333; 
+  color: #fff;
+}
+
+.footer {
+  font-size: smaller;
+  padding: 10px;
+  background-color: #f2f2f2; text-align: center;
+  border-top: 1px solid #ddd;
+  color: #333;
+  position: relative;
+  bottom: 0; width: 100%; height: 100px;
+}
+
+.active{
+  color: rgb(245, 206, 12)
+}

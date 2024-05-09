@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import TaskContext from '../context/TaskContext';
 
-export default function AddSubTasks({addChildTask, id}) {
+
+export default function AddSubTasks({id}) {
+
+  const { addChildTask } = useContext(TaskContext)
+
   const subTaskId = "subTaskId" + id;
   const subTaskButtonId = "subTaskButtonId" + id;
   let buttonTrigerred = false;

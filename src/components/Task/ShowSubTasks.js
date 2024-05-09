@@ -1,10 +1,14 @@
-import React from 'react'
+import { useContext } from 'react'
 import './styles.css';
+import TaskContext from '../context/TaskContext';
 
-export default function showSubTasks({parentId, id, title, description, completionStatus, subTasks, removedChildStatus}){
+
+export default function ShowSubTasks({parentId, id, title, description, completionStatus}){
+  const { removeChildTask } = useContext(TaskContext);
   const removedChild = () =>{
-    removedChildStatus(parentId, id);
+    removeChildTask(parentId, id);
   }
+
   return (
     <div className="card">
       <h3>{title}</h3>

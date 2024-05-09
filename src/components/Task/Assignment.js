@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import AddSubTasks from './AddSubTasks';
 import ShowSubTasks from './ShowSubTasks';
 import './styles.css'; // Import your CSS file
+import TaskContext from '../context/TaskContext';
 
 
-export default function Assignment({id, title, description, completionStatus, removedStatus, subTasks, removedChildStatus, addChildTask}) {
+export default function Assignment({id, title, description, completionStatus, subTasks}) {
   const removeButton = () =>{
-    removedStatus(id);
+    removeTask(id);
   }
+  const { removeTask } = useContext(TaskContext)
   return (
     <div className="assignment">
       <h3>{title}</h3>
@@ -31,13 +33,11 @@ export default function Assignment({id, title, description, completionStatus, re
             title = {subtask.title} 
             description= {subtask.description}
             completionStatus= {subtask.completionStatus}
-            removedStatus={removedStatus}
-            removedChildStatus={removedChildStatus}
           />
         )))
         }
       </div>
-      <AddSubTasks id={id} addChildTask={addChildTask}/>
+      <AddSubTasks id={id}/>
     </div>
   )
 

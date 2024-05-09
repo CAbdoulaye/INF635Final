@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import TaskContext from '../context/TaskContext'
 
 
 
-export default function AddTask({addTask}) {
+export default function AddTask() {
+  const { addTask } = useContext(TaskContext)
   const formik = useFormik({
     initialValues: {
       taskName: "",
