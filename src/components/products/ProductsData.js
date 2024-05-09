@@ -269,4 +269,5 @@ const productsData = [
     price: 129.99, 
     quantity: 5
   }
-]
+];
+export default productsData
