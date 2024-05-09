@@ -6,11 +6,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import NotFound from './pages/NotFound';
-import { TaskProvider } from './components/context/TaskContext';
+import { ProductsProvider } from './components/context/ProductsContext';
 
 export default function App() {
   return (
-    <TaskProvider>
+    <ProductsProvider>
       <BrowserRouter>
         <Header/>
         <Routes>
@@ -20,6 +20,6 @@ export default function App() {
         </Routes>
         <Footer/>
       </BrowserRouter>
-    </TaskProvider>
+    </ProductsProvider>
   );
 }
