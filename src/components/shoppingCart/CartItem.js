@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
 import ProductsContext from '../context/ProductsContext';
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
+import DatabaseContext from '../context/DatabaseContext'
 
 
 export default function CartItem({item}) {
-  const { productList, increaseCartItem, decreaseCartItem, removeCartItem, increaseTotal, decreaseTotal } = useContext(ProductsContext);
+  const { FruitsDataList, increaseCartItem, decreaseCartItem, removeCartItem, increaseTotal, decreaseTotal } = useContext(DatabaseContext);
 
-  const cartItem = (productList.filter((productItem) =>{
+  const cartItem = (FruitsDataList.filter((productItem) =>{
     if(productItem.id === item.id)
       return productItem
   }))[0]
@@ -24,7 +25,8 @@ export default function CartItem({item}) {
     decreaseTotal((cartItem.price * item.quantity).toFixed(2));
   }
 
-  const imgURL = `/images/${cartItem.imageURL}`; //Create Image URL Path
+  const imgURL = `/images/${cartItem.category}/${cartItem.imageURL}`; //Create Image URL Path
+
   return (
     <div className="cart-item-container">
             <div className="cart-item-image">

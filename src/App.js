@@ -20,7 +20,6 @@ export default function App() {
   return (
     <ProductContextProvider>
     <AuthContextProvider>
-    <ProductsProvider>
       <BrowserRouter>
         <Header/>
         <Routes>
@@ -35,7 +34,6 @@ export default function App() {
         </Routes>
         <Footer/>
       </BrowserRouter>
-    </ProductsProvider>
     </AuthContextProvider>
     </ProductContextProvider>
   );

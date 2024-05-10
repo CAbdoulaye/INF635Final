@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
-import ProductsContext from '../context/ProductsContext';
+import DatabaseContext from '../context/DatabaseContext';
 import CartItem from './CartItem';
 import {Link} from 'react-router-dom'
 
 
 
 export default function Cart() {
-  const { cartList, total } = useContext(ProductsContext);
+  const { cartList, total } = useContext(DatabaseContext);
+
   // let myDiv = document.getElementById("cartDiv")
   // if (total == 0){
   //   console.log("is zero")

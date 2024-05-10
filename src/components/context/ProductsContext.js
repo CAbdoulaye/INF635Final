@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
 import productsData from "../products/ProductsData"
-import cartData from "../products/CartData"
+import cartData from "../fruits/CartData"
 
 //import productsData from "../Task/ProductsData"
 
