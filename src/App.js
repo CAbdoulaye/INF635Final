@@ -9,9 +9,15 @@ import Footer from './pages/Footer';
 import NotFound from './pages/NotFound';
 import ThankYouPage from './pages/ThankYouPage';
 import { ProductsProvider } from './components/context/ProductsContext';
+import SignIn from './pages/SignIn';
+import { AuthContextProvider } from './components/context/AuthContext';
+import ProtectedPage from './pages/ProtectedPage';
+import ProtectedRoute from './routes/ProtectedRoute';
+import FillDatabase from './pages/FillDatabase';
 
 export default function App() {
   return (
+    <AuthContextProvider>
     <ProductsProvider>
       <BrowserRouter>
         <Header/>
@@ -19,11 +25,15 @@ export default function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/products" element={<ProductsPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/SignIn" element={<SignIn/>}/>
           <Route path="/thankYou" element={<ThankYouPage/>}/>
+          <Route path="/fillDatabase" element={<FillDatabase/>}/>
+          <Route path="/protected" element={<ProtectedRoute><ProtectedPage/></ProtectedRoute>}/>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
     </ProductsProvider>
+    </AuthContextProvider>
   );
 }
