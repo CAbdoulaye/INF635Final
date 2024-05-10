@@ -14,9 +14,11 @@ import { AuthContextProvider } from './components/context/AuthContext';
 import ProtectedPage from './pages/ProtectedPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 import FillDatabase from './pages/FillDatabase';
+import { ProductContextProvider } from './components/context/DatabaseContext';
 
 export default function App() {
   return (
+    <ProductContextProvider>
     <AuthContextProvider>
     <ProductsProvider>
       <BrowserRouter>
@@ -35,5 +37,6 @@ export default function App() {
       </BrowserRouter>
     </ProductsProvider>
     </AuthContextProvider>
+    </ProductContextProvider>
   );
 }

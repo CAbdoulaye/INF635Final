@@ -1,13 +1,13 @@
 const productsData = [
-  {
-    id: 1,
-    name: 'Apple Vision Pro',
-    description: "",
-    category: "TV",
-    imageURL: "AppleVisionPro.jpeg",
-    price: 3499.99, 
-    quantity: 5
-  },
+  // {
+  //   id: 1,
+  //   name: 'Apple Vision Pro',
+  //   description: "",
+  //   category: "TV",
+  //   imageURL: "AppleVisionPro.jpeg",
+  //   price: 3499.99, 
+  //   quantity: 5
+  // },
   {
     id: 2,
     name: 'PS5',
