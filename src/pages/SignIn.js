@@ -28,6 +28,7 @@ export default function SignIn() {
         navigate("/")
       } catch(err){
         console.log(err)
+        alert("Wrong Credentials")
       }
     }
     else{
@@ -51,83 +52,100 @@ export default function SignIn() {
   }
 
   if(switchToRegister !== true)
-  return (
-    <div className='container'>
-      <FormHeader description="Sign In:"/>
-      <form onSubmit={submitLogin}>
-        <FormInput
-          description="Email: "
-          type="email"
-          placeholder="Enter Email"
-          className="emailInput"
-          value={email}
-          onChange={(e) =>{setEmail(e.target.value)}}
-        />
-        <FormInput
-          description="Password: "
-          type="password"
-          placeholder="Enter Password"
-          className="passwordInput"
-          value={password}
-          onChange={(e) =>{setPassword(e.target.value)}}
-        />
-        <FormButton title="Log In"/>
-        <div className='alternativeLogin'>
-          <label>Or Sign in with:</label>
-          <div className="iconGroup">
-            <FaFacebook id="facebookIcon"/>
-            <FaGithub id="gitIcon"/>
-            <FaGoogle id="googleIcon"/>
-          </div>
+    return (
+      <div className='container'>
+        <div className=''>
+          <h2>Sign In:</h2>
         </div>
-      </form>
-      <Link to="#">Forgot Password</Link>
-      <p>Do Not Have an Account?</p>
-      <Link to="#" onClick={switchForm}>Register Here</Link>
-    </div>
-  )
+        <form onSubmit={submitLogin}>
+          <div className="inputBox">
+            <label>Email:</label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="emailInput input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="inputBox">
+            <label>Password:</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="passwordInput input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button className="btn">Log In</button>
+          <div className='alternativeLogin'>
+            <label>Or Sign in with:</label>
+            <div className="iconGroup">
+              <FaFacebook id="facebookIcon" className="icon"/>
+              <FaGithub id="gitIcon" className="icon"/>
+              <FaGoogle id="googleIcon" className="icon"/>
+            </div>
+          </div>
+        </form>
+        <Link to="#">Forgot Password</Link>
+        <p>Do Not Have an Account?</p>
+        <Link to="#" onClick={switchForm}>Register Here</Link>
+      </div>
+    );
+    
   else
   return (
-    <div>
-      <FormHeader description="Register:"/>
+    <div className='container'>
+      <div className=''>
+        <h2>Register:</h2>
+      </div>
       <form onSubmit={submitLogin}>
-      <FormInput
-          description="Name: "
-          type="text"
-          placeholder="Enter Your Full Name"
-          className="nameInput"
-          value={name}
-          onChange={(e) =>{setName(e.target.value)}}
-        />
-        <FormInput
-          description="Email: "
-          type="email"
-          placeholder="Enter Email"
-          className="emailInput"
-          value={email}
-          onChange={(e) =>{setEmail(e.target.value)}}
-        />
-        <FormInput
-          description="Password: "
-          type="password"
-          placeholder="Enter Password"
-          className="passwordInput"
-          value={password}
-          onChange={(e) =>{setPassword(e.target.value)}}
-        />
-        <FormInput
-          description="Confirm Password: "
-          type="password"
-          placeholder="Confirm Your Password"
-          className="confirmPasswordInput"
-          value={confirmPassword}
-          onChange={(e) =>{setConfirmPassword(e.target.value)}}
-        />
-        <FormButton title="Register"/>
+        <div className="inputBox">
+          <label>Name:</label>
+          <input
+            type="text"
+            placeholder="Enter Your Full Name"
+            className="nameInput input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="inputBox">
+          <label>Email:</label>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            className="emailInput input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="inputBox">
+          <label>Password:</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            className="passwordInput input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="inputBox">
+          <label>Confirm Password:</label>
+          <input
+            type="password"
+            placeholder="Confirm Your Password"
+            className="confirmPasswordInput input"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        <button className="btn">Register</button>
       </form>
       <h1>Register</h1>
       <p>Already Have An Account?</p>
       <Link to="#" onClick={switchForm}>Sign In Here</Link>
     </div>
-  )
+  )  
 }

@@ -20,14 +20,13 @@ export const ProductContextProvider = ({children}) => {
     const fetchTask = async () =>{
       try{
         const taskListRef = collection(db, "Products");
-        const q = query(taskListRef, orderBy("category"), limit(25));
+        const q = query(taskListRef, orderBy("category"), limit(50));
         const querySnapShot = await getDocs(q)
         const prdctList = querySnapShot.docs.map((doc) => {
             const dataWithId = doc.data();
             dataWithId.id = doc.id; // Merge the document ID into the data object
             return dataWithId;
           })
-        console.log("abcd")
         console.log(prdctList)
         setFruitsDataList(prdctList)
 
@@ -89,32 +88,37 @@ export const ProductContextProvider = ({children}) => {
     }))
   }
 
-  // const addToDatabase = async (product) => {
-  //   console.log("Trying to add to database")
-  //   console.log(product)
-  //   console.log(product.category)
-  //   try{
-  //     const docRef = await addDoc(collection(db, "Products"), {
-  //       name: product.name,
-  //       category: product.category,
-  //       imageURL: product.imageURL,
-  //       price: product.price,
-  //       quantity: product.quantity,
-  //       unit: product.unit
-  //     })
-  //     console.log("added " + product.name + " to database")
-  //     setFruitsDataList(
-  //       FruitsDataList.filter((fruit)=> fruit.id !== product.id)
-  //     )
-  //   }catch(err){
-  //     console.log("Error: ")
-  //     console.error(err)
-  //   }
-  // }
+  const emptyCart = () =>{
+    setCartList([])
+    setTotal(0)
+  }
+
+  const addToDatabase = async (product) => {
+    console.log("Trying to add to database")
+    console.log(product)
+    console.log(product.category)
+    try{
+      const docRef = await addDoc(collection(db, "Products"), {
+        name: product.name,
+        category: product.category,
+        imageURL: product.imageURL,
+        price: product.price,
+        quantity: product.quantity,
+        unit: product.unit
+      })
+      console.log("added " + product.name + " to database")
+      setFruitsDataList(
+        FruitsDataList.filter((fruit)=> fruit.id !== product.id)
+      )
+    }catch(err){
+      console.log("Error: ")
+      console.error(err)
+    }
+  }
 
 
   return (
-    <DBProductsContext.Provider value={{ FruitsDataList, increaseTotal, addToCart, decreaseTotal, cartList, total, removeCartItem, increaseCartItem, decreaseCartItem}}>
+    <DBProductsContext.Provider value={{ FruitsDataList, increaseTotal, addToCart, decreaseTotal, cartList, total, removeCartItem, increaseCartItem, decreaseCartItem, emptyCart, addToDatabase}}>
       {children}
     </DBProductsContext.Provider>
   )

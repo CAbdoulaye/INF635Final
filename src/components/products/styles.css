@@ -103,3 +103,8 @@
 .cart-item-quantity {
     color: green;
 }
+
+.productsDiv {
+    display: inline;
+    width: 20px
+}

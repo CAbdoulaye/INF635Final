@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import ProductsContext from '../context/ProductsContext';
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
 import DatabaseContext from '../context/DatabaseContext'
 

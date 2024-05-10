@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import FillDatabaseItem from './FillDatabaseItem';
-import DatabaseContext from '../context/DatabaseContext'
+import meat from './meatData';
 
 export default function FillDataBase() {
-  const {FruitsDataList} = useContext(DatabaseContext)
+  const FruitsDataList = meat
   return (
     <div>
       <h2>start</h2>

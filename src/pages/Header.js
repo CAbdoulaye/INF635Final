@@ -4,8 +4,9 @@ import './styles.css';
 import { UserAuth } from '../components/context/AuthContext';
 
 export default function Header() {
-  const {logout} = UserAuth()
+  const {logout, user} = UserAuth()
   const navigate = useNavigate()
+  const loggedIn = (user !== null) ? true : false;
   const handleLogOut = async() =>{
     try{
       await logout();
@@ -16,6 +17,7 @@ export default function Header() {
       console.log(err)
     }
   }
+  console.log(user)
   return (
     <div className='header'>
       <h1>Welcome To My Page</h1>
@@ -31,20 +33,14 @@ export default function Header() {
             <NavLink to="/cart">Cart</NavLink>
           </li>
           <li>
-            <NavLink to="/SignIn">Sign In</NavLink>
+            <NavLink to="/fill">Fill DB</NavLink>
           </li>
           <li>
-            <NavLink to="/fillDatabase">Fill Database</NavLink>
+            {loggedIn ?
+              <NavLink onClick={handleLogOut}>Log Out</NavLink> :
+              <NavLink to="/SignIn">Sign In</NavLink>
+            }
           </li>
-          <li>
-            <NavLink to="/protected">Protected</NavLink>
-          </li>
-          <li>
-            <NavLink onClick={handleLogOut}>Log Out</NavLink>
-          </li>
-          
-          
-
         </ul>
       </nav>
     </div>

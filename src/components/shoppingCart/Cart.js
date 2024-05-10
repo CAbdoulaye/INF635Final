@@ -1,22 +1,29 @@
 import React, {useContext} from 'react'
 import DatabaseContext from '../context/DatabaseContext';
 import CartItem from './CartItem';
-import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
+
 
 
 
 export default function Cart() {
-  const { cartList, total } = useContext(DatabaseContext);
+  const { cartList, total, emptyCart } = useContext(DatabaseContext);
+  const { user } = UserAuth();
 
-  // let myDiv = document.getElementById("cartDiv")
-  // if (total == 0){
-  //   console.log("is zero")
-  //   myDiv.style.display = "none"
-  // }
-  // else {
-  //   console.log("is not zero")
-  //   myDiv.style.display = "block"
-  // }
+  const loggedIn = (user !== null) ? true : false;
+  const navigate = useNavigate()
+
+  const handleCheckOut = () => {
+    if (!loggedIn){
+      alert("Please Log In To Place Order")
+      navigate("/signIn")
+    }
+    else{
+    navigate("/thankYou")
+    emptyCart()
+    }
+  }
   return (
     <div id="cartDiv" >
       <h2>Cart:</h2>
@@ -30,26 +37,9 @@ export default function Cart() {
         Cart Total: {total.toFixed(2)}
       </div>
 
-        <label htmlFor="firstName">First Name:
-          <input type="text" id="firstName" name="firstName" />
-        </label>
-        <label htmlFor="lastName">Last Name:
-          <input type="text" id="lastName" name="lastName" />
-        </label>
-        <label htmlFor="email">Email:
-          <input type="text" id="email" name="email" />
-        </label>
-        <label htmlFor="adress">Email:
-          <input type="text" id="adress" name="adress" />
-        </label>
-        <label htmlFor="phone">Email:
-          <input type="text" id="phone" name="phone" />
-        </label>
-        <div>
-        <Link to="/thankYou"> 
-          <button type="submit">Submit</button>
-        </Link> 
-        </div>
+      <div>
+        <button onClick={handleCheckOut} type="submit">Check Out</button>
+      </div>
     </div>
   )
 }
