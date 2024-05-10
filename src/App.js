@@ -25,7 +25,6 @@ export default function App() {
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/SignIn" element={<SignIn/>}/>
           <Route path="/thankYou" element={<ThankYouPage/>}/>
-          <Route path="/Fill" element={<FillDatabase/>}/>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Footer/>

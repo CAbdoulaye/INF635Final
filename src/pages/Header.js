@@ -33,9 +33,6 @@ export default function Header() {
             <NavLink to="/cart">Cart</NavLink>
           </li>
           <li>
-            <NavLink to="/fill">Fill DB</NavLink>
-          </li>
-          <li>
             {loggedIn ?
               <NavLink onClick={handleLogOut}>Log Out</NavLink> :
               <NavLink to="/SignIn">Sign In</NavLink>
