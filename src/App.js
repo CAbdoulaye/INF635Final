@@ -10,8 +10,13 @@ import NotFound from './pages/NotFound';
 import ThankYouPage from './pages/ThankYouPage';
 import SignIn from './pages/SignIn';
 import { AuthContextProvider } from './components/context/AuthContext';
-import FillDatabase from './pages/FillDatabase';
-import DBProductsContext, { ProductContextProvider } from './components/context/DatabaseContext';
+import EmployeesPage from './pages/EmployeesPage'
+import EmployeePage from './pages/EmployeePage'
+// import FillDatabase from './pages/FillDatabase';
+import  {ProductContextProvider} from './components/context/DatabaseContext';
+import TasksPage from './pages/TasksPage';
+import OrdersPage from './pages/OrdersPage';
+import EditProductsPage from './pages/EditProductsPage';
 
 export default function App() {
   return (
@@ -25,6 +30,11 @@ export default function App() {
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/SignIn" element={<SignIn/>}/>
           <Route path="/thankYou" element={<ThankYouPage/>}/>
+          <Route path="/employees" element={<EmployeesPage/>}/>
+          <Route path="/employee" element={<EmployeePage/>}/>
+          <Route path="/tasks" element={<TasksPage/>}/>
+          <Route path="/orders" element={<OrdersPage/>}/>
+          <Route path="/edit" element={<EditProductsPage/>}/>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Footer/>

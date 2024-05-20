@@ -1,17 +1,16 @@
 import React, {useContext, useState} from 'react'
-import Product from './Product';
-import './styles.css';
-import SearchTask from './SearchTask';
+import SearchTask from '../products/SearchTask';
 import DatabaseContext from '../context/DatabaseContext'
+import EditProduct from './EditProduct';
 
-export default function Products() { 
+export default function EditProducts() { 
 
   const { FruitsDataList } = useContext(DatabaseContext);
 
   const [searchByCategory, setSearchByCategory]  = useState("");
 
   const result = FruitsDataList.filter((product)=>
-    product.category.toLowerCase().includes(searchByCategory.toLowerCase()))
+    product.name.toLowerCase().includes(searchByCategory.toLowerCase()))
   
   return (
     <div>
@@ -21,7 +20,7 @@ export default function Products() {
       <h2>Products:</h2>
       <div className='productsDiv'>
         {result.map((product => (
-          <Product 
+          <EditProduct 
             key={product.id}
             product={product}
           />

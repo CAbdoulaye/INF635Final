@@ -36,7 +36,7 @@ export const ProductContextProvider = ({children}) => {
       }
     }
     fetchTask();
-  }, [1])
+  }, [0])
 
   const addToCart = (itemId) =>{
     let found = false;

@@ -1,0 +1,96 @@
+/* tasks style */
+.task-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.task-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+.task-item h3 {
+  margin: 0 0 5px;
+}
+.task-item p {
+  margin: 0;
+}
+.task-item .priority-high {
+  color: red;
+}
+.task-item .priority-medium {
+  color: orange;
+}
+.task-item .priority-low {
+  color: green;
+}
+
+/* orders style */
+.order-container {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.order-item {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.order-item h3 {
+  margin-bottom: 5px;
+}
+.order-item p {
+  margin-bottom: 5px;
+}
+.btn {
+  margin-right: 10px;
+}
+.showOnCLick{
+  display: none;
+}
+
+/* employee style */
+
+.manager-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.section-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.worker-item {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.worker-item h3 {
+  margin-bottom: 5px;
+}
+.task-item {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.task-item h3 {
+  margin-bottom: 5px;
+}
+.equipment-item {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.equipment-item h3 {
+  margin-bottom: 5px;
+}

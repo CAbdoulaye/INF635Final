@@ -6,6 +6,7 @@ const UserContext = createContext()
 
 export const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState(null)
+  const [admin, setAdmin] = useState(false)
 
   const createUser = (email, password) =>{
     createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
@@ -18,19 +19,22 @@ export const AuthContextProvider = ({children}) => {
   const signIn = (email, password) =>{
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       setUser(userCredential.user);
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+      if(email === 'manager@gmail.com')
+        setAdmin(true);
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   }
 
   const logout = () =>{
     setUser(null)
+    setAdmin(false);
     return signOut(auth); 
   }
 
   return (
-    <UserContext.Provider value={{ createUser, signIn, logout, user }}>
+    <UserContext.Provider value={{ createUser, signIn, logout, user, admin }}>
       {children}
     </UserContext.Provider>
   )
