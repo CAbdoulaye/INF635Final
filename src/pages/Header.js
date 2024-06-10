@@ -1,27 +1,39 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import {NavLink, useNavigate} from 'react-router-dom'
 import './styles.css';
 import { UserAuth } from '../components/context/AuthContext';
+import ManagerContext from '../components/context/ManagerContext';
 
 export default function Header() {
   const {logout, user, admin} = UserAuth()
+  const { manager, getManagerByEmail } = useContext(ManagerContext)
+
   const navigate = useNavigate()
   const employee = false
   const loggedIn = (user !== null) ? true : false;
-  const handleLogOut = async() =>{
+  const [managerInterface, setManagerInterface] = useState(false)
+
+  const handleLogOut = async () =>{
     try{
       await logout();
       navigate("/signIn");
       alert("Logged out")
+      setManagerInterface(false)
     }
     catch(err){
       console.log(err)
     }
   }
-  if (admin == true)
+
+const showManagerHeader = () => {
+  getManagerByEmail(user.email)
+  setManagerInterface(true)
+}
+
+  if (managerInterface){
   return (
     <div className='header'>
-      <h1>Welcome Back Manager</h1>
+      <h1>Welcome Back {manager.name}</h1>
       <nav>
         <ul>
           <li>
@@ -46,6 +58,7 @@ export default function Header() {
       </nav>
     </div>
   )
+}
   else if (employee == true)
     return(
       <div>
@@ -92,6 +105,7 @@ export default function Header() {
               <NavLink to="/SignIn">Sign In</NavLink>
             }
           </li>
+          <li>{loggedIn && admin ? <button onClick={showManagerHeader}>Manager</button> : ""}</li>
         </ul>
       </nav>
     </div>

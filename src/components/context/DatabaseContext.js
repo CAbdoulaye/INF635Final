@@ -3,8 +3,6 @@ import { createContext, useEffect, useState } from "react";
 import { db } from '../../firebase'
 import cartData from "../fruits/CartData"
 
-
-
 const DBProductsContext = createContext()
 
 export const ProductContextProvider = ({children}) => {

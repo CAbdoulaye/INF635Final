@@ -5,14 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 
 
-
-
 export default function Cart() {
   const { cartList, total, emptyCart } = useContext(DatabaseContext);
   const { user } = UserAuth();
+  
 
   const loggedIn = (user !== null) ? true : false;
   const navigate = useNavigate()
+
+  console.log(cartList)
 
   const handleCheckOut = () => {
     if (!loggedIn){
@@ -34,7 +35,7 @@ export default function Cart() {
         />
       )))}
       <div>
-        Cart Total: {total.toFixed(2)}
+        Cart Total: ${total.toFixed(2)}
       </div>
 
       <div>

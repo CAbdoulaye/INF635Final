@@ -11,6 +11,9 @@ export default function CartItem({item}) {
       return productItem
   }))[0]
 
+  console.log("price")
+  console.log(cartItem.price)
+
   const increaseItem = () =>{
     increaseCartItem(cartItem.id);
     increaseTotal(cartItem.price);
@@ -33,9 +36,9 @@ export default function CartItem({item}) {
             </div>
             <div className="cart-item-details">
                 <h2 className="cart-item-name">{cartItem.name}</h2>
-                <p className="cart-item-price">{cartItem.price}</p>
-                <p className="cart-item-quantity">Quantity: {item.quantity}</p>
-                <p className="cart-item-price">Total: {(cartItem.price * item.quantity).toFixed(2)}</p>
+                <p className="cart-item-price">${cartItem.price}</p>
+                <p className="cart-item-quantity">Quantity: {item.quantity} {cartItem.unit}</p>
+                <p className="cart-item-price">Total: ${(cartItem.price * item.quantity).toFixed(2)}</p>
                 <FaMinus onClick={decreaseItem}/>
                 <FaPlus onClick={increaseItem}/>
                 <br/>

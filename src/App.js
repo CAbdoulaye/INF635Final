@@ -1,27 +1,42 @@
 import React from 'react';
-import './App.css';
-import ProductsPage from './pages/ProductsPage';
-import CartPage from './pages/CartPage';
-import Home from './pages/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+//CSS
+import './App.css';
+
+//Pages
+import Home from './pages/Home';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import NotFound from './pages/NotFound';
+import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
 import ThankYouPage from './pages/ThankYouPage';
 import SignIn from './pages/SignIn';
-import { AuthContextProvider } from './components/context/AuthContext';
 import EmployeesPage from './pages/EmployeesPage'
 import EmployeePage from './pages/EmployeePage'
-// import FillDatabase from './pages/FillDatabase';
-import  {ProductContextProvider} from './components/context/DatabaseContext';
 import TasksPage from './pages/TasksPage';
 import OrdersPage from './pages/OrdersPage';
 import EditProductsPage from './pages/EditProductsPage';
+
+//Contexts
+import  {ProductContextProvider} from './components/context/DatabaseContext';
+import { AuthContextProvider } from './components/context/AuthContext';
+import  { TaskContextProvider } from './components/context/TasksContext';
+import { EmployeeContextProvider } from './components/context/EmployeeContext';
+import { ManagerContextProvider } from './components/context/ManagerContext';
+import { CustomerContextProvider } from './components/context/CustomerContext';
+import { CartContextProvider } from './components/context/CartContext';
 
 export default function App() {
   return (
     <ProductContextProvider>
     <AuthContextProvider>
+    <TaskContextProvider>
+    <EmployeeContextProvider>
+    <ManagerContextProvider>
+    <CustomerContextProvider>
+    <CartContextProvider>
       <BrowserRouter>
         <Header/>
         <Routes>
@@ -39,6 +54,11 @@ export default function App() {
         </Routes>
         <Footer/>
       </BrowserRouter>
+    </CartContextProvider>
+    </CustomerContextProvider>
+    </ManagerContextProvider>
+    </EmployeeContextProvider>
+    </TaskContextProvider>
     </AuthContextProvider>
     </ProductContextProvider>
   );

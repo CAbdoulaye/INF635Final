@@ -1,6 +1,8 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth } from "firebase/auth";
 import { createContext, useContext, useState } from "react";
 import { auth } from "../../firebase";
+import { addDoc, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
+import { db } from '../../firebase'
 
 const UserContext = createContext()
 
@@ -8,9 +10,11 @@ export const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState(null)
   const [admin, setAdmin] = useState(false)
 
-  const createUser = (email, password) =>{
+  const createUser = (name, email, password) =>{
     createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
       setUser(userCredential.user);
+      console.log(name)
+      addUserToDB(name, email)
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -19,7 +23,14 @@ export const AuthContextProvider = ({children}) => {
   const signIn = (email, password) =>{
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       setUser(userCredential.user);
-      if(email === 'manager@gmail.com')
+      console.log(user)
+
+      const authen = getAuth();
+      const currentuser = authen.currentUser;
+      console.log(currentuser.uid)
+
+
+      if (email.endsWith("@mngr.com"))
         setAdmin(true);
     }).catch((error) => {
       const errorCode = error.code;
@@ -27,10 +38,27 @@ export const AuthContextProvider = ({children}) => {
     });
   }
 
-  const logout = () =>{
+  const logout = () => {
     setUser(null)
     setAdmin(false);
     return signOut(auth); 
+  }
+
+  const addUserToDB = async (name, email) => {
+    // email will be uid
+    console.log("trying to add user to DB")
+    console.log(name)
+    try{
+      const docRef = await addDoc(collection(db, "Users"), {
+        name: name,
+        email: email,
+        shoppingCart: []
+      })
+      console.log("added " + name + " to database")
+    }catch(err){
+      console.log("Error: ")
+      console.error(err)
+    }
   }
 
   return (

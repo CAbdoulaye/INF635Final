@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import FormHeader from '../components/shared/FormHeader'
-import FormInput from '../components/shared/FormInput';
-import FormButton from '../components/shared/FormButton';
+// import FormHeader from '../components/shared/FormHeader'
+// import FormInput from '../components/shared/FormInput';
+// import FormButton from '../components/shared/FormButton';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Form.css'
@@ -21,10 +21,10 @@ export default function SignIn() {
   const submitLogin = async(e) =>{
     e.preventDefault();
     if(switchToRegister !== true){
-      console.log({email, password})
       try {
         await signIn(email, password);
         console.log("Signed In")
+        console.log(email)
         navigate("/")
       } catch(err){
         console.log(err)
@@ -32,9 +32,8 @@ export default function SignIn() {
       }
     }
     else{
-      console.log({name, email, password, confirmPassword})
       try {
-        await createUser(email, password);
+        await createUser(name, email, password);
         navigate("/")
       } catch(err){
         console.log(err)

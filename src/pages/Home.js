@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Home() {
-  const randomValue = Math.floor(Math.random() * 10); // 31 to include 30 as a possible value
+  // const randomValue = Math.floor(Math.random() * 10); // 31 to include 30 as a possible value
 
 return(
   <div>

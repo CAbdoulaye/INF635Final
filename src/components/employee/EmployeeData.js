@@ -6,11 +6,11 @@ const employeeData = [
     phone: "785-787-1299",
     hoursWorkedThisWeek: 109,
     schedule: {
-      monday: "10-3",
-      tuesday: "12-6",
-      wednesday: "12-6",
-      thursday: "10-3",
-      friday: "8-10"
+      monday: "10am-3pm",
+      tuesday: "12pm-6pm",
+      wednesday: "12pm-6pm",
+      thursday: "10am-3pm",
+      friday: "8am-10am"
     }
   },
   {
@@ -34,11 +34,11 @@ const employeeData = [
     phone: "620-907-8756",
     hoursWorkedThisWeek: 109,
     schedule: {
-      monday: "10-3",
-      tuesday: "12-6",
-      wednesday: "12-6",
-      thursday: "10-3",
-      friday: "8-10"
+      monday: "10am-3pm",
+      tuesday: "12pm-6pm",
+      wednesday: "12pm-6pm",
+      thursday: "10am-3pm",
+      friday: "8am-10"
     }
   }
 ]
