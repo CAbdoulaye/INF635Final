@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
+import { addDoc, updateDoc, doc, collection, getDocs, getDoc, orderBy, query, limit } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 import { db } from '../../firebase'
 import cartData from "../fruits/CartData"
@@ -10,7 +10,6 @@ export const ProductContextProvider = ({children}) => {
   const [FruitsDataList, setFruitsDataList] = useState([])
 
   const [total, setTotal] = useState(0);
-
 
   const [cartList, setCartList] = useState(cartData);
 
@@ -25,7 +24,6 @@ export const ProductContextProvider = ({children}) => {
             dataWithId.id = doc.id; // Merge the document ID into the data object
             return dataWithId;
           })
-        console.log(prdctList)
         setFruitsDataList(prdctList)
 
       }
@@ -36,7 +34,7 @@ export const ProductContextProvider = ({children}) => {
     fetchTask();
   }, [0])
 
-  const addToCart = (itemId) =>{
+  const addToCart = (itemId, prductName, prductPrice) =>{
     let found = false;
     setCartList(cartList.map((cartItem) => {
       if (cartItem.id === itemId){
@@ -46,7 +44,7 @@ export const ProductContextProvider = ({children}) => {
       return cartItem
     }))
     if (found == false) { // item is not on the list
-      setCartList([...cartList, {id: itemId, quantity: 1}])
+      setCartList([...cartList, {id: itemId, name: prductName, quantity: 1, price: prductPrice}])
     }
   }
 
@@ -114,9 +112,33 @@ export const ProductContextProvider = ({children}) => {
     }
   }
 
+  const editProduct = async (pdctID, pdctPrice, pdctQuantity) =>{
+    console.log(pdctID)
+    console.log(pdctPrice)
+    console.log(pdctQuantity)
+
+    try{
+      const docRef = doc(db, 'Products', pdctID);
+      await updateDoc(docRef, {
+        price: pdctPrice,
+        quantity: pdctQuantity
+      })
+      console.log("Update Successful")
+    }catch(err){
+      console.log("Error: ")
+      console.error(err)
+    }
+  }
+
+  const getPrice = async(pdctID) => {
+    const docRef = doc(db, "Products", pdctID);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data().price
+  }
+
 
   return (
-    <DBProductsContext.Provider value={{ FruitsDataList, increaseTotal, addToCart, decreaseTotal, cartList, total, removeCartItem, increaseCartItem, decreaseCartItem, emptyCart, addToDatabase}}>
+    <DBProductsContext.Provider value={{ FruitsDataList, increaseTotal, addToCart, decreaseTotal, cartList, setCartList, total, removeCartItem, increaseCartItem, decreaseCartItem, emptyCart, addToDatabase, setTotal, editProduct, getPrice }}>
       {children}
     </DBProductsContext.Provider>
   )

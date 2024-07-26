@@ -8,7 +8,7 @@ export default function Product({ product }) {
 
   // Add item to cart
   const addItem = () => {
-    addToCart(product.id);
+    addToCart(product.id, product.name, product.price);
     increaseTotal(product.price);
     setShowButton(true);
     setTimeout(() => {
@@ -29,7 +29,11 @@ export default function Product({ product }) {
             <h2 className="text-display">{product.name}</h2>
             <p className="text-display">{product.description}</p>
             <p className="text-display">${product.price}/{product.unit}</p>
-            <p className="text-display">Available: {product.quantity} {product.unit}</p>
+            {product.quantity > 0 ? ( 
+              <p className="text-display">Available: {product.quantity} {product.unit}</p>
+            ) : (
+              <p className="text-display">Unavailable</p>
+            ) }
             {showButton ? (
               <p className="text-display">Added Item To Cart</p>
             ) : (

@@ -1,5 +1,5 @@
 import { db } from '../../firebase'
-import { addDoc, deleteDoc, doc, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
+import { addDoc, updateDoc, deleteDoc, doc, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
 import { createContext, useState, useEffect } from "react";
 
 
@@ -20,7 +20,6 @@ export const TaskContextProvider = ({children}) => {
             dataWithId.id = doc.id; // Merge the document ID into the data object
             return dataWithId;
           })
-        console.log(tskList)
         setTasksList(tskList)
       }
       catch(err){
@@ -63,9 +62,26 @@ export const TaskContextProvider = ({children}) => {
     }
     setTasksList(tasksList.filter(task => task.id !== ID));
   }
+  const saveTaskToDB = async (ID, tasktitle, taskextra, taskpriority, taskassignedTo) => {
+    console.log("Trying to save task to database")
+    console.log(ID)
+    try{
+      const docRef = doc(db, 'Tasks', ID);
+      await updateDoc(docRef, {
+        title: tasktitle,
+        extra: taskextra,
+        priority: taskpriority,
+        assignedTo: taskassignedTo,
+      })
+      console.log("Update Successful")    
+    }catch(err){
+      console.log("Error: ")
+      console.error(err)
+    }
+  }
 
   return (
-    <DBTasksContext.Provider value={{ tasksList, addTaskToDatabase, deleteTaskFromDB }}>
+    <DBTasksContext.Provider value={{ tasksList, addTaskToDatabase, deleteTaskFromDB, saveTaskToDB }}>
       {children}
     </DBTasksContext.Provider>
   )

@@ -6,12 +6,12 @@ export default function SearchTask({setSearchByCategory}) {
       <form onSubmit={(e) => e.preventDefault()}>
       <br/>
       <label htmlFor="itemSearchByCategory">
-        Search By Category: 
+        Search: 
         <input  
           type="text" 
           id="itemSearchByCategory" 
           name="itemSearchByCategory" 
-          placeholder="Enter Item Category"
+          placeholder="Enter Item Name"
           role="searchbox"
           onChange={(e)=>{setSearchByCategory(e.target.value)}}
         />

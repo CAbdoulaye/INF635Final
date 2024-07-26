@@ -52,6 +52,9 @@ const showManagerHeader = () => {
             <NavLink to="/orders">Orders</NavLink>
           </li>
           <li>
+            <NavLink to="/report">Report</NavLink>
+          </li>
+          <li>
             <NavLink onClick={handleLogOut}>Log Out</NavLink> 
           </li>
         </ul>
@@ -87,7 +90,7 @@ const showManagerHeader = () => {
   else
   return (
     <div className='header'>
-      <h1>Welcome To My Page</h1>
+      <h1>Harvest Haven</h1>
       <nav>
         <ul>
           <li>

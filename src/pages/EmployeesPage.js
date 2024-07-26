@@ -6,7 +6,6 @@ import Emp from '../components/manager/Emp'
 export default function EmployeesPage() {
   return (
     <div>
-      <h1>Employees</h1>
       <Emp />
     </div>
   )

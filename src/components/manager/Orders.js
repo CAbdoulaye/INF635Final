@@ -1,15 +1,19 @@
-import React from 'react'
-import OrdersData from './OrdersData'
+import React, { useContext } from 'react'
 import Order from './Order'
 import './task.css';
+import OrderContext from '../context/OrderContext';
 
 
 
 export default function Orders() {
+
+  const { orderList } = useContext(OrderContext);
+
   return (
-    <div className='order-container'>
-      {OrdersData.map((order) => (
-        <Order key={order.number} order={order}/>
+    <div className='task-container'>
+      <h1>Placed Orders</h1>
+      {orderList.map((order) => (
+        <Order key={order.id} order={order}/>
       ))}
     </div>
   )

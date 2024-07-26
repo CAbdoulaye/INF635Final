@@ -18,15 +18,20 @@ import EmployeePage from './pages/EmployeePage'
 import TasksPage from './pages/TasksPage';
 import OrdersPage from './pages/OrdersPage';
 import EditProductsPage from './pages/EditProductsPage';
+import ReportPage from './pages/ReportPage';
+import PrintPage from './pages/PrintPage';
+
 
 //Contexts
-import  {ProductContextProvider} from './components/context/DatabaseContext';
+import { ProductContextProvider } from './components/context/DatabaseContext';
 import { AuthContextProvider } from './components/context/AuthContext';
-import  { TaskContextProvider } from './components/context/TasksContext';
+import { TaskContextProvider } from './components/context/TasksContext';
 import { EmployeeContextProvider } from './components/context/EmployeeContext';
 import { ManagerContextProvider } from './components/context/ManagerContext';
 import { CustomerContextProvider } from './components/context/CustomerContext';
 import { CartContextProvider } from './components/context/CartContext';
+import { OrderContextProvider } from './components/context/OrderContext';
+import { ReportContextProvider } from './components/context/ReportContext';
 
 export default function App() {
   return (
@@ -37,6 +42,8 @@ export default function App() {
     <ManagerContextProvider>
     <CustomerContextProvider>
     <CartContextProvider>
+    <OrderContextProvider>
+    <ReportContextProvider>
       <BrowserRouter>
         <Header/>
         <Routes>
@@ -50,10 +57,14 @@ export default function App() {
           <Route path="/tasks" element={<TasksPage/>}/>
           <Route path="/orders" element={<OrdersPage/>}/>
           <Route path="/edit" element={<EditProductsPage/>}/>
+          <Route path="/report" element={<ReportPage/>}/>
+          <Route path="/print" element={<PrintPage/>}/>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
+    </ReportContextProvider>
+    </OrderContextProvider>
     </CartContextProvider>
     </CustomerContextProvider>
     </ManagerContextProvider>

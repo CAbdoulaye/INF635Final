@@ -2,7 +2,7 @@
 //Jason.irving@gmail.com
 
 import { db } from '../../firebase'
-import { addDoc, deleteDoc, doc, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
+import { addDoc, updateDoc,  deleteDoc, doc, collection, getDocs, orderBy, query, limit } from "firebase/firestore";
 import { createContext, useState, useEffect } from "react";
 
 const DBEmployeeContext = createContext()
@@ -22,7 +22,6 @@ export const EmployeeContextProvider = ({children}) => {
             dataWithId.id = doc.id; // Merge the document ID into the data object
             return dataWithId;
           })
-        console.log(empList)
         setEmployeeList(empList)
       }
       catch(err){
@@ -47,8 +46,8 @@ export const EmployeeContextProvider = ({children}) => {
         schedule: employee.schedule,
       })
       console.log("added " + employee.name + " to database")
-      // const newTask = {id: task.title, ...task}
-      // setTasksList([newTask, ...tasksList])
+      const newEmp = {id: 12345, ...employee}
+      setEmployeeList([newEmp, ...employeeList])
       // console.log(tasksList)
     }catch(err){
       console.log("Error: ")
@@ -56,8 +55,35 @@ export const EmployeeContextProvider = ({children}) => {
     }
   }
 
+  const deleteEmployee = async (empID) => {
+    console.log(empID)
+    try{
+      await deleteDoc(doc(db, "Employees", empID))
+    }catch(err){
+      console.error(err)
+    }
+  }
+  const saveWorkerToDB = async (ID, Empname, EmpmanagerName, Empposition, Empphone, Empemail, EmphourlyRate, EmphoursThisMonth, Empschedule) => {
+    try{
+      const docRef = doc(db, 'Employees', ID);
+      await updateDoc(docRef, {
+        name: Empname,
+        managerName: EmpmanagerName,
+        priority: Empposition,
+        phone: Empphone,
+        email: Empemail,
+        hourlyRate: EmphourlyRate, 
+        hoursThisMonth: EmphoursThisMonth,
+        schedule: Empschedule
+      })
+      console.log("Update Successful") 
+    }catch(err){
+      console.error(err)
+    }
+  }
+
   return (
-    <DBEmployeeContext.Provider value={{ employeeList, addEmployeeToDB }}>
+    <DBEmployeeContext.Provider value={{ employeeList, addEmployeeToDB, deleteEmployee, saveWorkerToDB }}>
       {children}
     </DBEmployeeContext.Provider>
   )

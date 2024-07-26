@@ -11,7 +11,7 @@ export default function Products() {
   const [searchByCategory, setSearchByCategory]  = useState("");
 
   const result = FruitsDataList.filter((product)=>
-    product.category.toLowerCase().includes(searchByCategory.toLowerCase()))
+    product.name.toLowerCase().includes(searchByCategory.toLowerCase()))
   
   return (
     <div>

@@ -9,12 +9,14 @@ const UserContext = createContext()
 export const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState(null)
   const [admin, setAdmin] = useState(false)
+  const [email, setEmail] = useState("a")
 
   const createUser = (name, email, password) =>{
     createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
       setUser(userCredential.user);
       console.log(name)
       addUserToDB(name, email)
+      setEmail(email)
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -24,10 +26,10 @@ export const AuthContextProvider = ({children}) => {
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       setUser(userCredential.user);
       console.log(user)
-
       const authen = getAuth();
       const currentuser = authen.currentUser;
       console.log(currentuser.uid)
+      setEmail(email)
 
 
       if (email.endsWith("@mngr.com"))
@@ -52,7 +54,8 @@ export const AuthContextProvider = ({children}) => {
       const docRef = await addDoc(collection(db, "Users"), {
         name: name,
         email: email,
-        shoppingCart: []
+        shoppingCart: [],
+        total: 0
       })
       console.log("added " + name + " to database")
     }catch(err){
@@ -62,7 +65,7 @@ export const AuthContextProvider = ({children}) => {
   }
 
   return (
-    <UserContext.Provider value={{ createUser, signIn, logout, user, admin }}>
+    <UserContext.Provider value={{ createUser, signIn, logout, user, admin, email }}>
       {children}
     </UserContext.Provider>
   )

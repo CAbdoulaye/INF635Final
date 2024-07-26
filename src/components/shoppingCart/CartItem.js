@@ -11,8 +11,6 @@ export default function CartItem({item}) {
       return productItem
   }))[0]
 
-  console.log("price")
-  console.log(cartItem.price)
 
   const increaseItem = () =>{
     increaseCartItem(cartItem.id);
